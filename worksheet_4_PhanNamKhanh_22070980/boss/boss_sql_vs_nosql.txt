@@ -1,0 +1,13 @@
+SCENARIO 1: High-velocity social media feed
+- Lựa chọn: NoSQL
+- Justification (Lý do):
+  1. Horizontal Scalability (Khả năng mở rộng ngang): Mạng xã hội tạo ra hàng triệu bài đăng và lượt tương tác (massive writes) mỗi giờ. NoSQL được thiết kế để dễ dàng phân tán dữ liệu trên nhiều server rẻ tiền.
+  2. Schema Flexibility (Schema-less): Cấu trúc dữ liệu của mạng xã hội thay đổi liên tục (có thêm text, image, poll, video, location...). NoSQL (như Document DB) cho phép lưu trữ linh hoạt mà không cần cấu trúc cứng nhắc từ trước.
+  3. High Velocity (Tốc độ cao): NoSQL tối ưu hóa cho tốc độ đọc/ghi dữ liệu khổng lồ nhanh chóng, hy sinh một chút tính nhất quán (Consistency) để đổi lấy Availability và Partition tolerance (định lý CAP).
+
+SCENARIO 2: Secure bank ledger (Sổ cái ngân hàng)
+- Lựa chọn: SQL (Relational Database)
+- Justification (Lý do):
+  1. ACID Properties: Tính toàn vẹn và chính xác là ưu tiên số 1 của giao dịch tài chính. SQL tuân thủ nghiêm ngặt tính chất ACID (Atomicity, Consistency, Isolation, Durability) đảm bảo không có giao dịch lỗi giữa chừng (ví dụ: tiền trừ bên A thì chắc chắn phải cộng vào bên B).
+  2. Strict Integrity (Toàn vẹn dữ liệu): Các ràng buộc (Constraints) như khóa ngoại (FOREIGN KEY), CHECK, và các kiểu dữ liệu chính xác (như DECIMAL) giúp ngăn chặn hoàn toàn dữ liệu rác hoặc sai lệch ngay từ cấp độ database.
+  3. Vertical Scalability & Complex Transactions: Hệ thống sổ cái đòi hỏi xử lý các truy vấn phức tạp kết nối nhiều bảng (JOINs) và quản lý transaction (Giao dịch) cực kỳ chặt chẽ, vốn là thế mạnh cốt lõi của RDBMS.
